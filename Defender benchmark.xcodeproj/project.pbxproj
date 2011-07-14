@@ -18,6 +18,8 @@
 		4C098B3613CCC5A5006DAAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C098B3413CCC5A5006DAAE0 /* InfoPlist.strings */; };
 		4C098B3813CCC5A5006DAAE0 /* Defender_benchmarkTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 4C098B3713CCC5A5006DAAE0 /* Defender_benchmarkTests.h */; };
 		4C098B3A13CCC5A5006DAAE0 /* Defender_benchmarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C098B3913CCC5A5006DAAE0 /* Defender_benchmarkTests.m */; };
+		4C098B4513CCC5D8006DAAE0 /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C098B4413CCC5D8006DAAE0 /* Dice.m */; };
+		4C098B4613CCC5D8006DAAE0 /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C098B4413CCC5D8006DAAE0 /* Dice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,20 +38,22 @@
 		4C098B1113CCC5A4006DAAE0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4C098B1213CCC5A4006DAAE0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C098B1313CCC5A4006DAAE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4C098B1613CCC5A4006DAAE0 /* Defender benchmark-Info.plist */ = {isa = PBXFileReference; path = "Defender benchmark-Info.plist"; sourceTree = "<group>"; };
+		4C098B1613CCC5A4006DAAE0 /* Defender benchmark-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Defender benchmark-Info.plist"; sourceTree = "<group>"; };
 		4C098B1813CCC5A4006DAAE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C098B1A13CCC5A4006DAAE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4C098B1C13CCC5A4006DAAE0 /* Defender benchmark-Prefix.pch */ = {isa = PBXFileReference; path = "Defender benchmark-Prefix.pch"; sourceTree = "<group>"; };
+		4C098B1C13CCC5A4006DAAE0 /* Defender benchmark-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Defender benchmark-Prefix.pch"; sourceTree = "<group>"; };
 		4C098B1E13CCC5A4006DAAE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4C098B2013CCC5A4006DAAE0 /* Defender_benchmarkAppDelegate.h */ = {isa = PBXFileReference; path = Defender_benchmarkAppDelegate.h; sourceTree = "<group>"; };
+		4C098B2013CCC5A4006DAAE0 /* Defender_benchmarkAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defender_benchmarkAppDelegate.h; sourceTree = "<group>"; };
 		4C098B2113CCC5A4006DAAE0 /* Defender_benchmarkAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Defender_benchmarkAppDelegate.m; sourceTree = "<group>"; };
 		4C098B2413CCC5A5006DAAE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4C098B2B13CCC5A5006DAAE0 /* Defender benchmarkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Defender benchmarkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C098B2C13CCC5A5006DAAE0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		4C098B3313CCC5A5006DAAE0 /* Defender benchmarkTests-Info.plist */ = {isa = PBXFileReference; path = "Defender benchmarkTests-Info.plist"; sourceTree = "<group>"; };
+		4C098B3313CCC5A5006DAAE0 /* Defender benchmarkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Defender benchmarkTests-Info.plist"; sourceTree = "<group>"; };
 		4C098B3513CCC5A5006DAAE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C098B3713CCC5A5006DAAE0 /* Defender_benchmarkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defender_benchmarkTests.h; sourceTree = "<group>"; };
 		4C098B3913CCC5A5006DAAE0 /* Defender_benchmarkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Defender_benchmarkTests.m; sourceTree = "<group>"; };
+		4C098B4313CCC5D8006DAAE0 /* Dice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dice.h; sourceTree = "<group>"; };
+		4C098B4413CCC5D8006DAAE0 /* Dice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dice.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 				4C098B2113CCC5A4006DAAE0 /* Defender_benchmarkAppDelegate.m */,
 				4C098B2313CCC5A5006DAAE0 /* MainMenu.xib */,
 				4C098B1513CCC5A4006DAAE0 /* Supporting Files */,
+				4C098B4313CCC5D8006DAAE0 /* Dice.h */,
+				4C098B4413CCC5D8006DAAE0 /* Dice.m */,
 			);
 			path = "Defender benchmark";
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			files = (
 				4C098B1B13CCC5A4006DAAE0 /* main.m in Sources */,
 				4C098B2213CCC5A4006DAAE0 /* Defender_benchmarkAppDelegate.m in Sources */,
+				4C098B4513CCC5D8006DAAE0 /* Dice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C098B3A13CCC5A5006DAAE0 /* Defender_benchmarkTests.m in Sources */,
+				4C098B4613CCC5D8006DAAE0 /* Dice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +352,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -364,7 +372,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Release;
 		};
