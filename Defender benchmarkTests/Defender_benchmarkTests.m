@@ -41,7 +41,8 @@
         total += [d6 value];
     }
     
-    STAssertEqualsWithAccuracy(total / rolls, [d6 avg], 0.05, @"unexpected actual avg");
+    STAssertEqualsWithAccuracy(total / rolls, [d6 avg], 0.1, @"unexpected actual avg");
+    STAssertEqualObjects(@"1d6+0", [d6 description], @"wrong description?");
 }
 
 @end
