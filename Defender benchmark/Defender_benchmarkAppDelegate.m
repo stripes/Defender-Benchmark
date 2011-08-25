@@ -3,7 +3,7 @@
 //  Defender benchmark
 //
 //  Created by Josh Osborne on 7/12/11.
-//  Copyright 2011 Apple. All rights reserved.
+//  Copyright 2011 J Osborne. All rights reserved.
 //
 
 #import "Defender_benchmarkAppDelegate.h"
