@@ -11,4 +11,9 @@
 @interface Dice : NSObject
 // NdS[+C]   XXX: should also allow things like 3d6+2d4
 -initWithString:(NSString*)expression;
+-(int)value;
+-(void)roll;
+-(int)max;
+-(double)avg;
+-(NSString *)description;
 @end
