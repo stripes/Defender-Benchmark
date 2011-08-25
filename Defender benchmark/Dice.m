@@ -54,7 +54,7 @@ dispatch_once_t dice_once;
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%dd%d%s%d", numDice, numSides, (constant > 0) ? "+" : "", constant];
+    return [NSString stringWithFormat:@"%dd%d%s%d", numDice, numSides, (constant >= 0) ? "+" : "", constant];
 }
 
 -(int)value
