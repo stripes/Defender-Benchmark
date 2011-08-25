@@ -7,7 +7,7 @@
 //
 
 #import "Dice.h"
-#import <Foundation/NSRegularExpression.h>
+#import "NSString+rangeOfCharactersFromSet.h"
 
 @interface Dice() {
 	int numDice;
@@ -22,7 +22,7 @@
 
 @implementation Dice
 
-NSRegularExpression *dice_regex = nil;
+NSCharacterSet *integers;
 dispatch_once_t dice_once;
 
 - (id)initWithString:(NSString *)expression
@@ -33,28 +33,43 @@ dispatch_once_t dice_once;
     }
     
     dispatch_once(&dice_once, ^{
-        dice_regex = [NSRegularExpression regularExpressionWithPattern:@"^(\\d+)d(\\d+)(\\+\\d+)$" options:0 error:nil];
-        NSAssert(dice_regex, @"made dice regex");
+        integers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+        NSAssert(integers, @"made integers char set");
     });
     
-    NSTextCheckingResult *match = [dice_regex firstMatchInString:expression options:NSMatchingAnchored range:NSMakeRange(0, [expression length])];
-    NSLog(@"'%@' (%@) #ranges=%lu", expression, match, [match numberOfRanges]);
-    for(int i = 0; i < [match numberOfRanges]; i++) {
-        NSLog(@"R[%d] = '%@'", i, [expression substringWithRange:[match rangeAtIndex:i]]);
+    NSRange numDiceRange = [expression rangeOfCharactersFromSet:integers options:NSAnchoredSearch range:NSMakeRange(0, [expression length])];
+    NSAssert(numDiceRange.length != 0, @"Expected '%@' to start with digits", expression);
+    int number = [[expression substringWithRange:numDiceRange] intValue];
+    if (numDiceRange.length == [expression length]) {
+        constant = number;
+    } else {
+        numDice = number;
+        NSAssert('d' == [expression characterAtIndex:numDiceRange.length], @"Expected d to follow first digits in %@", expression);
+        NSAssert(numDiceRange.length <= [expression length], @"Expected digits after first d in %@", expression);
+        NSRange numSidesRange = [expression rangeOfCharactersFromSet:integers options:NSAnchoredSearch range:NSMakeRange(numDiceRange.length +1, [expression length] - (numDiceRange.length +1))];
+        NSAssert(numSidesRange.length != 0, @"Expected '%@' to have digits after the d", expression);
+        numSides = [[expression substringWithRange:numSidesRange] intValue];
+        
+        if (numSidesRange.location + numSidesRange.length != [expression length]) {
+            NSUInteger nextExpressionLocation = numSidesRange.location + numSidesRange.length;
+            NSAssert('+' == [expression characterAtIndex:nextExpressionLocation], @"Expected + after number of sides, or empty string in '%@', not %c", expression, (char)[expression characterAtIndex:nextExpressionLocation]);
+            moreDice = [[Dice alloc] initWithString:[expression substringFromIndex:nextExpressionLocation +1]];
+        } else {
+            moreDice = nil;
+        }
     }
-    NSAssert(4 == [match numberOfRanges], @"Expected 4 matches, have %lu", [match numberOfRanges]);
-    
-    numDice =  [[expression substringWithRange:[match rangeAtIndex:1]] intValue];
-    numSides = [[expression substringWithRange:[match rangeAtIndex:2]] intValue];
-    constant = [[expression substringWithRange:[match rangeAtIndex:3]] intValue];
-    moreDice = nil;
     
     return self;
 }
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%dd%d%s%d", numDice, numSides, (constant >= 0) ? "+" : "", constant];
+    if (numDice) {
+        NSAssert(constant == 0, @"Can't have a constant and numDice");
+        return [NSString stringWithFormat:@"%dd%d%s%@", numDice, numSides, (moreDice != nil) ? "+" : "", moreDice ? [moreDice description] : @""];
+    } else {
+        return [NSString stringWithFormat:@"%d%s%@", constant, (moreDice != nil) ? "+" : "", moreDice ? [moreDice description] : @""];
+    }
 }
 
 -(int)value
@@ -69,6 +84,10 @@ dispatch_once_t dice_once;
     lastRoll = constant;
     for(int i = 0; i < numDice; i++) {
         lastRoll += 1 + arc4random() % numSides;
+    }
+    if (moreDice) {
+        [moreDice roll];
+        lastRoll += [moreDice value];
     }
 }
 
